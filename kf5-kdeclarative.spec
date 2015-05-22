@@ -2,18 +2,18 @@
 # Not packaged:
 # /usr/include/KF5
 # /usr/share/kservicetypes5
-%define		kdeframever	5.4
+%define		kdeframever	5.10
 %define		qtver		5.3.2
 %define		kfname		kdeclarative
 
 Summary:	Integration of QML and KDE work spaces
 Name:		kf5-%{kfname}
-Version:	5.4.0
+Version:	5.10.0
 Release:	0.1
 License:	LGPL v2.1+
 Group:		X11/Libraries
 Source0:	http://download.kde.org/stable/frameworks/%{kdeframever}/%{kfname}-%{version}.tar.xz
-# Source0-md5:	2478ce5757782a8e8f3b06512aa3d65a
+# Source0-md5:	09de5d66de47f645d50c57ac735eeb3c
 URL:		http://www.kde.org/
 BuildRequires:	Qt5Core-devel >= %{qtver}
 BuildRequires:	Qt5DBus-devel >= %{qtver}
@@ -43,6 +43,7 @@ BuildRequires:	kf5-kiconthemes-devel >= %{version}
 BuildRequires:	kf5-kio-devel >= %{version}
 BuildRequires:	kf5-kitemviews-devel >= %{version}
 BuildRequires:	kf5-kjobwidgets-devel >= %{version}
+BuildRequires:	kf5-kpackage-devel >= %{version}
 BuildRequires:	kf5-kservice-devel >= %{version}
 BuildRequires:	kf5-ktextwidgets-devel >= %{version}
 BuildRequires:	kf5-kwidgetsaddons-devel >= %{version}
@@ -100,10 +101,12 @@ rm -rf $RPM_BUILD_ROOT
 %files -f %{kfname}5.lang
 %defattr(644,root,root,755)
 %doc README.md
+%attr(755,root,root) %{_bindir}/kpackagelauncherqml
 %attr(755,root,root) %ghost %{_libdir}/libKF5Declarative.so.5
-%attr(755,root,root) %{_libdir}/libKF5Declarative.so.5.4.0
+%attr(755,root,root) %{_libdir}/libKF5Declarative.so.*.*
 %attr(755,root,root) %ghost %{_libdir}/libKF5QuickAddons.so.5
-%attr(755,root,root) %{_libdir}/libKF5QuickAddons.so.5.4.0
+%attr(755,root,root) %{_libdir}/libKF5QuickAddons.so.*.*
+%attr(755,root,root) %{qt5dir}/qml/org/kde/kwindowsystem/libkwindowsystem.so
 %attr(755,root,root) %{qt5dir}/qml/org/kde/draganddrop/libdraganddropplugin.so
 %{qt5dir}/qml/org/kde/draganddrop/qmldir
 %attr(755,root,root) %{qt5dir}/qml/org/kde/kcoreaddons/libkcoreaddonsplugin.so
