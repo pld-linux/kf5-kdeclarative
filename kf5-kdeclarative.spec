@@ -5,7 +5,7 @@
 Summary:	Integration of QML and KDE work spaces
 Name:		kf5-%{kfname}
 Version:	5.13.0
-Release:	2
+Release:	3
 License:	LGPL v2.1+
 Group:		X11/Libraries
 Source0:	http://download.kde.org/stable/frameworks/%{kdeframever}/%{kfname}-%{version}.tar.xz
@@ -102,9 +102,9 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_libdir}/libKF5Declarative.so.*.*
 %attr(755,root,root) %ghost %{_libdir}/libKF5QuickAddons.so.5
 %attr(755,root,root) %{_libdir}/libKF5QuickAddons.so.*.*
-/usr/lib64/qt5/qml/org/kde/kio/qmldir
+%{_libdir}/qt5/qml/org/kde/kio/qmldir
 %attr(755,root,root) %{qt5dir}/qml/org/kde/kio/libkio.so
-/usr/lib64/qt5/qml/org/kde/kwindowsystem/qmldir
+%{_libdir}/qt5/qml/org/kde/kwindowsystem/qmldir
 %attr(755,root,root) %{qt5dir}/qml/org/kde/kwindowsystem/libkwindowsystem.so
 %attr(755,root,root) %{qt5dir}/qml/org/kde/draganddrop/libdraganddropplugin.so
 %{qt5dir}/qml/org/kde/draganddrop/qmldir
