@@ -1,15 +1,15 @@
-%define		kdeframever	5.13
+%define		kdeframever	5.19
 %define		qtver		5.3.2
 %define		kfname		kdeclarative
 
 Summary:	Integration of QML and KDE work spaces
 Name:		kf5-%{kfname}
-Version:	5.13.0
-Release:	3
+Version:	5.19.0
+Release:	1
 License:	LGPL v2.1+
 Group:		X11/Libraries
 Source0:	http://download.kde.org/stable/frameworks/%{kdeframever}/%{kfname}-%{version}.tar.xz
-# Source0-md5:	ec10b94e44ed70106ce5e41aa9ed6cd0
+# Source0-md5:	045ed4200129ee96b8ca521a005ac33c
 URL:		http://www.kde.org/
 BuildRequires:	Qt5Core-devel >= %{qtver}
 BuildRequires:	Qt5DBus-devel >= %{qtver}
@@ -98,6 +98,8 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %doc README.md
 %attr(755,root,root) %{_bindir}/kpackagelauncherqml
+%attr(755,root,root) %ghost %{_libdir}/libKF5CalendarEvents.so.5
+%attr(755,root,root) %{_libdir}/libKF5CalendarEvents.so.5.19.0
 %attr(755,root,root) %ghost %{_libdir}/libKF5Declarative.so.5
 %attr(755,root,root) %{_libdir}/libKF5Declarative.so.*.*
 %attr(755,root,root) %ghost %{_libdir}/libKF5QuickAddons.so.5
@@ -123,6 +125,7 @@ rm -rf $RPM_BUILD_ROOT
 %{_includedir}/KF5/KDeclarative
 %{_includedir}/KF5/kdeclarative_version.h
 %{_libdir}/cmake/KF5Declarative
+%attr(755,root,root) %{_libdir}/libKF5CalendarEvents.so
 %attr(755,root,root) %{_libdir}/libKF5Declarative.so
 %attr(755,root,root) %{_libdir}/libKF5QuickAddons.so
 %{qt5dir}/mkspecs/modules/qt_KDeclarative.pri
