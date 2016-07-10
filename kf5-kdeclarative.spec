@@ -101,7 +101,7 @@ rm -rf $RPM_BUILD_ROOT
 %doc README.md
 %attr(755,root,root) %{_bindir}/kpackagelauncherqml
 %attr(755,root,root) %ghost %{_libdir}/libKF5CalendarEvents.so.5
-%attr(755,root,root) %{_libdir}/libKF5CalendarEvents.so.5.23.0
+%attr(755,root,root) %{_libdir}/libKF5CalendarEvents.so.5.*.*
 %attr(755,root,root) %ghost %{_libdir}/libKF5Declarative.so.5
 %attr(755,root,root) %{_libdir}/libKF5Declarative.so.*.*
 %attr(755,root,root) %ghost %{_libdir}/libKF5QuickAddons.so.5
