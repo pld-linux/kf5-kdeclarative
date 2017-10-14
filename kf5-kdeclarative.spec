@@ -1,15 +1,15 @@
-%define		kdeframever	5.24
+%define		kdeframever	5.39
 %define		qtver		5.3.2
 %define		kfname		kdeclarative
 
 Summary:	Integration of QML and KDE work spaces
 Name:		kf5-%{kfname}
-Version:	5.24.0
+Version:	5.39.0
 Release:	1
 License:	LGPL v2.1+
 Group:		X11/Libraries
 Source0:	http://download.kde.org/stable/frameworks/%{kdeframever}/%{kfname}-%{version}.tar.xz
-# Source0-md5:	36a675fb1622d1d74f77e35a9f4dabd2
+# Source0-md5:	bf91f0f3c2ac299280b8d22bd1064c58
 URL:		http://www.kde.org/
 BuildRequires:	Qt5Core-devel >= %{qtver}
 BuildRequires:	Qt5DBus-devel >= %{qtver}
@@ -121,6 +121,9 @@ rm -rf $RPM_BUILD_ROOT
 %{qt5dir}/qml/org/kde/kquickcontrolsaddons/qmldir
 %attr(755,root,root) %{qt5dir}/qml/org/kde/private/kquickcontrols/libkquickcontrolsprivateplugin.so
 %{qt5dir}/qml/org/kde/private/kquickcontrols/qmldir
+%attr(755,root,root) %{_libdir}/qt5/qml/org/kde/kconfig/libkconfigplugin.so
+%{_libdir}/qt5/qml/org/kde/kconfig/qmldir
+
 
 %files devel
 %defattr(644,root,root,755)
