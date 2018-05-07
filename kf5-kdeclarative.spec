@@ -1,15 +1,15 @@
-%define		kdeframever	5.39
+%define		kdeframever	5.45
 %define		qtver		5.3.2
 %define		kfname		kdeclarative
 
 Summary:	Integration of QML and KDE work spaces
 Name:		kf5-%{kfname}
-Version:	5.39.0
-Release:	2
+Version:	5.45.0
+Release:	1
 License:	LGPL v2.1+
 Group:		X11/Libraries
 Source0:	http://download.kde.org/stable/frameworks/%{kdeframever}/%{kfname}-%{version}.tar.xz
-# Source0-md5:	bf91f0f3c2ac299280b8d22bd1064c58
+# Source0-md5:	8a27af4133c38a50c936c4f3d752f903
 URL:		http://www.kde.org/
 BuildRequires:	Qt5Core-devel >= %{qtver}
 BuildRequires:	Qt5DBus-devel >= %{qtver}
@@ -124,6 +124,13 @@ rm -rf $RPM_BUILD_ROOT
 %{qt5dir}/qml/org/kde/private/kquickcontrols/qmldir
 %attr(755,root,root) %{_libdir}/qt5/qml/org/kde/kconfig/libkconfigplugin.so
 %{_libdir}/qt5/qml/org/kde/kconfig/qmldir
+%dir %{_libdir}/qt5/qml/org/kde/kcm
+%{_libdir}/qt5/qml/org/kde/kcm/GridDelegate.qml
+%{_libdir}/qt5/qml/org/kde/kcm/GridView.qml
+%{_libdir}/qt5/qml/org/kde/kcm/GridViewKCM.qml
+%{_libdir}/qt5/qml/org/kde/kcm/SimpleKCM.qml
+%{_libdir}/qt5/qml/org/kde/kcm/libkcmcontrolsplugin.so
+%{_libdir}/qt5/qml/org/kde/kcm/qmldir
 
 
 %files devel
