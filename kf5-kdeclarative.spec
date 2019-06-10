@@ -1,15 +1,15 @@
-%define		kdeframever	5.56
+%define		kdeframever	5.59
 %define		qtver		5.9.0
 %define		kfname		kdeclarative
 
 Summary:	Integration of QML and KDE work spaces
 Name:		kf5-%{kfname}
-Version:	5.56.0
+Version:	5.59.0
 Release:	1
 License:	LGPL v2.1+
 Group:		X11/Libraries
 Source0:	http://download.kde.org/stable/frameworks/%{kdeframever}/%{kfname}-%{version}.tar.xz
-# Source0-md5:	026ce4fdb02dbc05549742756f004d1e
+# Source0-md5:	827dba21f0d951da4587fccd02ab78f7
 URL:		http://www.kde.org/
 BuildRequires:	Qt5Core-devel >= %{qtver}
 BuildRequires:	Qt5DBus-devel >= %{qtver}
@@ -129,6 +129,8 @@ rm -rf $RPM_BUILD_ROOT
 %{_libdir}/qt5/qml/org/kde/kcm/GridViewKCM.qml
 %{_libdir}/qt5/qml/org/kde/kcm/SimpleKCM.qml
 %{_libdir}/qt5/qml/org/kde/kcm/libkcmcontrolsplugin.so
+%dir %{_libdir}/qt5/qml/org/kde/kcm/private
+%{_libdir}/qt5/qml/org/kde/kcm/private/GridViewInternal.qml
 %{_libdir}/qt5/qml/org/kde/kcm/qmldir
 %{_libdir}/qt5/qml/org/kde/kcm/ScrollView.qml
 %{_libdir}/qt5/qml/org/kde/kcm/ScrollViewKCM.qml
