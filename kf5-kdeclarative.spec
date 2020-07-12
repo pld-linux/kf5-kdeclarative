@@ -5,7 +5,7 @@
 Summary:	Integration of QML and KDE work spaces
 Name:		kf5-%{kfname}
 Version:	5.67.0
-Release:	1
+Release:	2
 License:	LGPL v2.1+
 Group:		X11/Libraries
 Source0:	http://download.kde.org/stable/frameworks/%{kdeframever}/%{kfname}-%{version}.tar.xz
@@ -66,6 +66,7 @@ Summary(pl.UTF-8):	Pliki nagłówkowe dla programistów używających %{kfname}
 Group:		X11/Development/Libraries
 Requires:	%{name} = %{version}-%{release}
 Requires:	kf5-kconfig-devel
+Requires:	kf5-kpackage-devel
 
 %description devel
 Header files for %{kfname} development.
