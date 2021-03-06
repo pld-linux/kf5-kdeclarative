@@ -1,15 +1,15 @@
-%define		kdeframever	5.67
+%define		kdeframever	5.79
 %define		qtver		5.9.0
 %define		kfname		kdeclarative
 
 Summary:	Integration of QML and KDE work spaces
 Name:		kf5-%{kfname}
-Version:	5.67.0
-Release:	2
+Version:	5.79.0
+Release:	1
 License:	LGPL v2.1+
 Group:		X11/Libraries
 Source0:	http://download.kde.org/stable/frameworks/%{kdeframever}/%{kfname}-%{version}.tar.xz
-# Source0-md5:	5f491d1b51cbafefff0d502c2818a1c9
+# Source0-md5:	a19eb4911c2fece7c2d5849f046733f7
 URL:		http://www.kde.org/
 BuildRequires:	Qt5Core-devel >= %{qtver}
 BuildRequires:	Qt5DBus-devel >= %{qtver}
@@ -135,6 +135,9 @@ rm -rf $RPM_BUILD_ROOT
 %{_libdir}/qt5/qml/org/kde/kcm/qmldir
 %{_libdir}/qt5/qml/org/kde/kcm/ScrollView.qml
 %{_libdir}/qt5/qml/org/kde/kcm/ScrollViewKCM.qml
+%{_libdir}/qt5/qml/org/kde/kcm/AbstractKCM.qml
+%{_libdir}/qt5/qml/org/kde/kcm/SettingHighlighter.qml
+%{_libdir}/qt5/qml/org/kde/kcm/SettingStateBinding.qml
 
 %files devel
 %defattr(644,root,root,755)
