@@ -1,15 +1,15 @@
-%define		kdeframever	5.83
+%define		kdeframever	5.84
 %define		qtver		5.9.0
 %define		kfname		kdeclarative
 
 Summary:	Integration of QML and KDE work spaces
 Name:		kf5-%{kfname}
-Version:	5.83.0
+Version:	5.84.0
 Release:	1
 License:	LGPL v2.1+
 Group:		X11/Libraries
 Source0:	http://download.kde.org/stable/frameworks/%{kdeframever}/%{kfname}-%{version}.tar.xz
-# Source0-md5:	5b577463ea51e7552f190e7f6aea70f0
+# Source0-md5:	27c33a685c62a3c15eeda574c301d43b
 URL:		http://www.kde.org/
 BuildRequires:	Qt5Core-devel >= %{qtver}
 BuildRequires:	Qt5DBus-devel >= %{qtver}
