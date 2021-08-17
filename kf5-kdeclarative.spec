@@ -1,15 +1,15 @@
-%define		kdeframever	5.84
+%define		kdeframever	5.85
 %define		qtver		5.9.0
 %define		kfname		kdeclarative
 
 Summary:	Integration of QML and KDE work spaces
 Name:		kf5-%{kfname}
-Version:	5.84.0
+Version:	5.85.0
 Release:	1
 License:	LGPL v2.1+
 Group:		X11/Libraries
 Source0:	http://download.kde.org/stable/frameworks/%{kdeframever}/%{kfname}-%{version}.tar.xz
-# Source0-md5:	27c33a685c62a3c15eeda574c301d43b
+# Source0-md5:	1da45e0185075d0c384100c17d8a789f
 URL:		http://www.kde.org/
 BuildRequires:	Qt5Core-devel >= %{qtver}
 BuildRequires:	Qt5DBus-devel >= %{qtver}
@@ -139,6 +139,12 @@ rm -rf $RPM_BUILD_ROOT
 %{_libdir}/qt5/qml/org/kde/kcm/SettingHighlighter.qml
 %{_libdir}/qt5/qml/org/kde/kcm/SettingStateBinding.qml
 %{_libdir}/qt5/qml/org/kde/kcm/ContextualHelpButton.qml
+%{_libdir}/qt5/qml/org/kde/graphicaleffects/Lanczos.qml
+%{_libdir}/qt5/qml/org/kde/graphicaleffects/lanczos2sharp.frag
+%{_libdir}/qt5/qml/org/kde/graphicaleffects/lanczos2sharp_core.frag
+%{_libdir}/qt5/qml/org/kde/graphicaleffects/preserveaspect.vert
+%{_libdir}/qt5/qml/org/kde/graphicaleffects/preserveaspect_core.vert
+%{_libdir}/qt5/qml/org/kde/graphicaleffects/qmldir
 
 %files devel
 %defattr(644,root,root,755)
