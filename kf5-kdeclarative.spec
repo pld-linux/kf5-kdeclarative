@@ -5,7 +5,7 @@
 Summary:	Integration of QML and KDE work spaces
 Name:		kf5-%{kfname}
 Version:	5.85.0
-Release:	1
+Release:	2
 License:	LGPL v2.1+
 Group:		X11/Libraries
 Source0:	http://download.kde.org/stable/frameworks/%{kdeframever}/%{kfname}-%{version}.tar.xz
@@ -139,6 +139,7 @@ rm -rf $RPM_BUILD_ROOT
 %{_libdir}/qt5/qml/org/kde/kcm/SettingHighlighter.qml
 %{_libdir}/qt5/qml/org/kde/kcm/SettingStateBinding.qml
 %{_libdir}/qt5/qml/org/kde/kcm/ContextualHelpButton.qml
+%dir %{_libdir}/qt5/qml/org/kde/graphicaleffects
 %{_libdir}/qt5/qml/org/kde/graphicaleffects/Lanczos.qml
 %{_libdir}/qt5/qml/org/kde/graphicaleffects/lanczos2sharp.frag
 %{_libdir}/qt5/qml/org/kde/graphicaleffects/lanczos2sharp_core.frag
