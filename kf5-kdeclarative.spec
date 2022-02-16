@@ -1,15 +1,15 @@
-%define		kdeframever	5.90
+%define		kdeframever	5.91
 %define		qtver		5.9.0
 %define		kfname		kdeclarative
 
 Summary:	Integration of QML and KDE work spaces
 Name:		kf5-%{kfname}
-Version:	5.90.0
+Version:	5.91.0
 Release:	1
 License:	LGPL v2.1+
 Group:		X11/Libraries
 Source0:	https://download.kde.org/stable/frameworks/%{kdeframever}/%{kfname}-%{version}.tar.xz
-# Source0-md5:	c7c2a4453b1c60cc6ea3714a94e6b7f4
+# Source0-md5:	bd47095a50a31c273f48e5b0a0178f02
 URL:		http://www.kde.org/
 BuildRequires:	Qt5Core-devel >= %{qtver}
 BuildRequires:	Qt5DBus-devel >= %{qtver}
@@ -150,7 +150,6 @@ rm -rf $RPM_BUILD_ROOT
 %files devel
 %defattr(644,root,root,755)
 %{_includedir}/KF5/KDeclarative
-%{_includedir}/KF5/kdeclarative_version.h
 %{_libdir}/cmake/KF5Declarative
 %{_libdir}/libKF5CalendarEvents.so
 %{_libdir}/libKF5Declarative.so
