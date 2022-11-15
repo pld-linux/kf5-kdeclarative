@@ -1,18 +1,18 @@
 #
 # Conditional build:
 %bcond_with	tests		# build with tests
-%define		kdeframever	5.99
+%define		kdeframever	5.100
 %define		qtver		5.15.2
 %define		kfname		kdeclarative
 
 Summary:	Integration of QML and KDE work spaces
 Name:		kf5-%{kfname}
-Version:	5.99.0
-Release:	3
+Version:	5.100.0
+Release:	1
 License:	LGPL v2.1+
 Group:		X11/Libraries
 Source0:	https://download.kde.org/stable/frameworks/%{kdeframever}/%{kfname}-%{version}.tar.xz
-# Source0-md5:	38a884268325da1cb67b807cf04f8e01
+# Source0-md5:	4a98d676f19e1ed42146c600163912cc
 URL:		http://www.kde.org/
 BuildRequires:	Qt5Core-devel >= %{qtver}
 BuildRequires:	Qt5DBus-devel >= %{qtver}
