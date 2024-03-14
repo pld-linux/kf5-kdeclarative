@@ -1,29 +1,28 @@
 #
 # Conditional build:
 %bcond_with	tests		# build with tests
-%define		kdeframever	5.249.0
+%define		kdeframever	5.114
 %define		qtver		5.15.2
 %define		kfname		kdeclarative
 
 Summary:	Integration of QML and KDE work spaces
 Name:		kf5-%{kfname}
-Version:	5.249.0
-Release:	0.1
+Version:	5.114.0
+Release:	1
 License:	LGPL v2.1+
 Group:		X11/Libraries
-Source0:	https://download.kde.org/unstable/frameworks/%{kdeframever}/%{kfname}-%{version}.tar.xz
-# Source0-md5:	1623474e2336ee0e281f4ea9d0f8b8d3
+Source0:	https://download.kde.org/stable/frameworks/%{kdeframever}/%{kfname}-%{version}.tar.xz
+# Source0-md5:	9d1b7c03b43a78a73748068db8f1e4b1
 URL:		http://www.kde.org/
-BuildRequires:	Qt6Core-devel >= %{qtver}
-BuildRequires:	Qt6DBus-devel >= %{qtver}
-BuildRequires:	Qt6Gui-devel >= %{qtver}
-BuildRequires:	Qt6Network-devel >= %{qtver}
-BuildRequires:	Qt6Qml-devel >= %{qtver}
-BuildRequires:	Qt6Quick-devel >= %{qtver}
-BuildRequires:	Qt6ShaderTools-devel
-BuildRequires:	Qt6Test-devel >= %{qtver}
-BuildRequires:	Qt6Widgets-devel >= %{qtver}
-BuildRequires:	Qt6Xml-devel >= %{qtver}
+BuildRequires:	Qt5Core-devel >= %{qtver}
+BuildRequires:	Qt5DBus-devel >= %{qtver}
+BuildRequires:	Qt5Gui-devel >= %{qtver}
+BuildRequires:	Qt5Network-devel >= %{qtver}
+BuildRequires:	Qt5Qml-devel >= %{qtver}
+BuildRequires:	Qt5Quick-devel >= %{qtver}
+BuildRequires:	Qt5Test-devel >= %{qtver}
+BuildRequires:	Qt5Widgets-devel >= %{qtver}
+BuildRequires:	Qt5Xml-devel >= %{qtver}
 BuildRequires:	cmake >= 3.16
 BuildRequires:	gettext-devel
 BuildRequires:	kf5-attica-devel >= %{version}
@@ -53,14 +52,13 @@ BuildRequires:	kf5-solid-devel >= %{version}
 BuildRequires:	kf5-sonnet-devel >= %{version}
 BuildRequires:	libepoxy-devel
 BuildRequires:	ninja
-BuildRequires:	qt6-shadertools
 BuildRequires:	rpmbuild(macros) >= 1.164
 BuildRequires:	tar >= 1:1.22
 BuildRequires:	xz
 Requires:	kf5-dirs
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
-%define		qt6dir		%{_libdir}/qt6
+%define		qt5dir		%{_libdir}/qt5
 
 %description
 KDeclarative provides integration of QML and KDE work spaces.
@@ -99,7 +97,7 @@ Pliki nagłówkowe dla programistów używających %{kfname}.
 rm -rf $RPM_BUILD_ROOT
 %ninja_install -C build
 
-%find_lang %{kfname}6
+%find_lang %{kfname}5
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -107,39 +105,63 @@ rm -rf $RPM_BUILD_ROOT
 %post -p /sbin/ldconfig
 %postun -p /sbin/ldconfig
 
-%files -f %{kfname}6.lang
+%files -f %{kfname}5.lang
 %defattr(644,root,root,755)
 %doc README.md
-%ghost %{_libdir}/libKF6CalendarEvents.so.6
-%attr(755,root,root) %{_libdir}/libKF6CalendarEvents.so.5.*.*
-%dir %{_libdir}/qt6/qml/org/kde/draganddrop
-%{_libdir}/qt6/qml/org/kde/draganddrop/draganddropplugin.qmltypes
-%{_libdir}/qt6/qml/org/kde/draganddrop/kde-qmlmodule.version
-%attr(755,root,root) %{_libdir}/qt6/qml/org/kde/draganddrop/libdraganddropplugin.so
-%{_libdir}/qt6/qml/org/kde/draganddrop/qmldir
-%dir %{_libdir}/qt6/qml/org/kde/graphicaleffects
-%{_libdir}/qt6/qml/org/kde/graphicaleffects/BadgeEffect.qml
-%{_libdir}/qt6/qml/org/kde/graphicaleffects/Lanczos.qml
-%{_libdir}/qt6/qml/org/kde/graphicaleffects/graphicaleffects.qmltypes
-%{_libdir}/qt6/qml/org/kde/graphicaleffects/kde-qmlmodule.version
-%attr(755,root,root) %{_libdir}/qt6/qml/org/kde/graphicaleffects/libgraphicaleffects.so
-%{_libdir}/qt6/qml/org/kde/graphicaleffects/qmldir
-%dir %{_libdir}/qt6/qml/org/kde/kquickcontrols
-%{_libdir}/qt6/qml/org/kde/kquickcontrols/ColorButton.qml
-%{_libdir}/qt6/qml/org/kde/kquickcontrols/KeySequenceItem.qml
-%{_libdir}/qt6/qml/org/kde/kquickcontrols/qmldir
-%dir %{_libdir}/qt6/qml/org/kde/kquickcontrolsaddons
-%{_libdir}/qt6/qml/org/kde/kquickcontrolsaddons/kde-qmlmodule.version
-%{_libdir}/qt6/qml/org/kde/kquickcontrolsaddons/kquickcontrolsaddonsplugin.qmltypes
-%attr(755,root,root) %{_libdir}/qt6/qml/org/kde/kquickcontrolsaddons/libkquickcontrolsaddonsplugin.so
-%{_libdir}/qt6/qml/org/kde/kquickcontrolsaddons/qmldir
-%dir %{_libdir}/qt6/qml/org/kde/private/kquickcontrols
-%attr(755,root,root) %{_libdir}/qt6/qml/org/kde/private/kquickcontrols/libkquickcontrolsprivateplugin.so
-%{_libdir}/qt6/qml/org/kde/private/kquickcontrols/qmldir
-
+%attr(755,root,root) %{_bindir}/kpackagelauncherqml
+%ghost %{_libdir}/libKF5CalendarEvents.so.5
+%attr(755,root,root) %{_libdir}/libKF5CalendarEvents.so.5.*.*
+%ghost %{_libdir}/libKF5Declarative.so.5
+%attr(755,root,root) %{_libdir}/libKF5Declarative.so.*.*
+%ghost %{_libdir}/libKF5QuickAddons.so.5
+%attr(755,root,root) %{_libdir}/libKF5QuickAddons.so.*.*
+%{_libdir}/qt5/qml/org/kde/kio/qmldir
+%attr(755,root,root) %{qt5dir}/qml/org/kde/kio/libkio.so
+%{_libdir}/qt5/qml/org/kde/kwindowsystem/qmldir
+%attr(755,root,root) %{qt5dir}/qml/org/kde/kwindowsystem/libkwindowsystem.so
+%attr(755,root,root) %{qt5dir}/qml/org/kde/draganddrop/libdraganddropplugin.so
+%{qt5dir}/qml/org/kde/draganddrop/qmldir
+%attr(755,root,root) %{qt5dir}/qml/org/kde/kcoreaddons/libkcoreaddonsplugin.so
+%{qt5dir}/qml/org/kde/kcoreaddons/qmldir
+%{qt5dir}/qml/org/kde/kquickcontrols/ColorButton.qml
+%{qt5dir}/qml/org/kde/kquickcontrols/KeySequenceItem.qml
+%{qt5dir}/qml/org/kde/kquickcontrols/qmldir
+%attr(755,root,root) %{qt5dir}/qml/org/kde/kquickcontrolsaddons/libkquickcontrolsaddonsplugin.so
+%{qt5dir}/qml/org/kde/kquickcontrolsaddons/qmldir
+%attr(755,root,root) %{qt5dir}/qml/org/kde/private/kquickcontrols/libkquickcontrolsprivateplugin.so
+%{qt5dir}/qml/org/kde/private/kquickcontrols/qmldir
+%attr(755,root,root) %{_libdir}/qt5/qml/org/kde/kconfig/libkconfigplugin.so
+%{_libdir}/qt5/qml/org/kde/kconfig/qmldir
+%dir %{_libdir}/qt5/qml/org/kde/kcm
+%{_libdir}/qt5/qml/org/kde/kcm/GridDelegate.qml
+%{_libdir}/qt5/qml/org/kde/kcm/GridView.qml
+%{_libdir}/qt5/qml/org/kde/kcm/GridViewKCM.qml
+%{_libdir}/qt5/qml/org/kde/kcm/SimpleKCM.qml
+%{_libdir}/qt5/qml/org/kde/kcm/libkcmcontrolsplugin.so
+%dir %{_libdir}/qt5/qml/org/kde/kcm/private
+%{_libdir}/qt5/qml/org/kde/kcm/private/GridDelegateMenu.qml
+%{_libdir}/qt5/qml/org/kde/kcm/private/GridViewInternal.qml
+%{_libdir}/qt5/qml/org/kde/kcm/qmldir
+%{_libdir}/qt5/qml/org/kde/kcm/ScrollView.qml
+%{_libdir}/qt5/qml/org/kde/kcm/ScrollViewKCM.qml
+%{_libdir}/qt5/qml/org/kde/kcm/AbstractKCM.qml
+%{_libdir}/qt5/qml/org/kde/kcm/SettingHighlighter.qml
+%{_libdir}/qt5/qml/org/kde/kcm/SettingStateBinding.qml
+%{_libdir}/qt5/qml/org/kde/kcm/ContextualHelpButton.qml
+%dir %{_libdir}/qt5/qml/org/kde/graphicaleffects
+%{_libdir}/qt5/qml/org/kde/graphicaleffects/Lanczos.qml
+%{_libdir}/qt5/qml/org/kde/graphicaleffects/lanczos2sharp.frag
+%{_libdir}/qt5/qml/org/kde/graphicaleffects/lanczos2sharp_core.frag
+%{_libdir}/qt5/qml/org/kde/graphicaleffects/preserveaspect.vert
+%{_libdir}/qt5/qml/org/kde/graphicaleffects/preserveaspect_core.vert
+%{_libdir}/qt5/qml/org/kde/graphicaleffects/qmldir
 
 %files devel
 %defattr(644,root,root,755)
-%{_includedir}/KF6/KDeclarative
-%{_libdir}/cmake/KF6Declarative
-%{_libdir}/libKF6CalendarEvents.so
+%{_includedir}/KF5/KDeclarative
+%{_libdir}/cmake/KF5Declarative
+%{_libdir}/libKF5CalendarEvents.so
+%{_libdir}/libKF5Declarative.so
+%{_libdir}/libKF5QuickAddons.so
+%{qt5dir}/mkspecs/modules/qt_KDeclarative.pri
+%{qt5dir}/mkspecs/modules/qt_QuickAddons.pri
